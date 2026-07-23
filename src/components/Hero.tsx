@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { ArrowDown, Sun, Sparkles } from "lucide-react";
+import { ArrowDown, Sparkles } from "lucide-react";
 import { playTactileSound } from "@/utils/soundEngine";
 
 interface HeroProps {
@@ -9,7 +9,6 @@ interface HeroProps {
 }
 
 export function Hero({ onDiscoverClick }: HeroProps) {
-  const [lightIntensity, setLightIntensity] = useState(85);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -48,16 +47,6 @@ export function Hero({ onDiscoverClick }: HeroProps) {
 
         {/* Dark gradient overlay so text stays readable over the video */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/40" />
-
-        {/* Warm ambient glow overlay tied to slider */}
-        <div
-          className="absolute inset-0 pointer-events-none transition-opacity duration-500 mix-blend-soft-light"
-          style={{
-            background: `radial-gradient(circle at 50% 45%, rgba(255, 220, 160, ${
-              lightIntensity / 100
-            }) 0%, transparent 65%)`,
-          }}
-        />
       </div>
 
       {/* ── Content Layer ── */}
@@ -90,25 +79,8 @@ export function Hero({ onDiscoverClick }: HeroProps) {
         </div>
       </div>
 
-      {/* ── Ambient Light Control (bottom-right) ── */}
-      <div className="absolute bottom-24 right-6 z-20 bg-black/20 backdrop-blur-sm border border-white/20 px-4 py-1.5 flex items-center space-x-3 text-xs text-white/80">
-        <Sun className="w-3.5 h-3.5 text-[#F5E3C6]" />
-        <span className="font-serif italic text-xs">2700K</span>
-        <input
-          type="range"
-          min="30"
-          max="100"
-          value={lightIntensity}
-          onChange={(e) => {
-            setLightIntensity(Number(e.target.value));
-            playTactileSound("light");
-          }}
-          className="w-16 h-1 accent-[#F5E3C6] cursor-pointer"
-        />
-      </div>
-
       {/* ── Bottom Bar ── */}
-      <div className="max-w-7xl mx-auto w-full flex items-center justify-between text-[11px] text-white/60 uppercase tracking-[0.2em] relative z-10 pt-8 border-t border-white/20">
+      <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between text-[10px] sm:text-[11px] text-white/60 uppercase tracking-[0.2em] relative z-10 pt-6 sm:pt-8 border-t border-white/20 gap-3 sm:gap-0 text-center">
         <span>Scandinavian &amp; Japanese Minimalism</span>
         <span className="hidden sm:inline font-serif italic text-xs capitalize text-white/70">
           &ldquo;Light creates space&rdquo;

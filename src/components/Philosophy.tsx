@@ -43,9 +43,9 @@ export function Philosophy() {
 
       {/* Atmospheric Video & Tactile Sensory Sanctuary */}
       <div className="mt-20 max-w-6xl mx-auto">
-        <div className="relative overflow-hidden bg-[#D8CFC7]/50 border border-[#D8CFC7] shadow-xl p-8 md:p-12">
+        <div className="relative overflow-hidden bg-[#D8CFC7]/50 border border-[#D8CFC7] shadow-xl p-4 sm:p-8 md:p-12">
           {/* Main Visual Presentation Frame */}
-          <div className="relative aspect-[16/9] w-full overflow-hidden border border-[#D8CFC7]">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full overflow-hidden border border-[#D8CFC7]">
             <Image
               src="/images/craftsmanship_wood_fabric.png"
               alt="Hands making floating lamps with natural linen and ash wood"
@@ -64,11 +64,11 @@ export function Philosophy() {
             />
 
             {/* Video-style atmospheric Overlay Quote */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#595552]/40 via-transparent to-transparent flex flex-col justify-end p-8 text-[#F9F6EF]">
-              <span className="text-xs uppercase tracking-[0.3em] font-light opacity-90">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#595552]/40 via-transparent to-transparent flex flex-col justify-end p-4 sm:p-8 text-[#F9F6EF]">
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] font-light opacity-90">
                 Atmospheric Sanctuary — Sri Lanka Workshop
               </span>
-              <p className="font-serif italic text-xl md:text-2xl mt-1 max-w-lg font-light">
+              <p className="font-serif italic text-base sm:text-xl md:text-2xl mt-1 max-w-lg font-light">
                 Fabric moving slowly. Wood details. Light glowing. Hands making products.
               </p>
             </div>
@@ -86,10 +86,10 @@ export function Philosophy() {
             </div>
 
             {/* Tactile Sound Trigger Buttons */}
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <button
                 onClick={() => handleSoundClick("wood")}
-                className={`px-5 py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
+                className={`px-4 sm:px-5 py-2.5 sm:py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
                   activeSound === "wood"
                     ? "bg-[#A9978B] text-[#F9F6EF] border-[#A9978B] scale-95"
                     : "bg-[#F9F6EF] text-[#595552] border-[#D8CFC7] hover:border-[#A9978B]"
@@ -101,7 +101,7 @@ export function Philosophy() {
 
               <button
                 onClick={() => handleSoundClick("fabric")}
-                className={`px-5 py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
+                className={`px-4 sm:px-5 py-2.5 sm:py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
                   activeSound === "fabric"
                     ? "bg-[#A9978B] text-[#F9F6EF] border-[#A9978B] scale-95"
                     : "bg-[#F9F6EF] text-[#595552] border-[#D8CFC7] hover:border-[#A9978B]"
@@ -113,7 +113,7 @@ export function Philosophy() {
 
               <button
                 onClick={() => handleSoundClick("light")}
-                className={`px-5 py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
+                className={`px-4 sm:px-5 py-2.5 sm:py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
                   activeSound === "light"
                     ? "bg-[#A9978B] text-[#F9F6EF] border-[#A9978B] scale-95"
                     : "bg-[#F9F6EF] text-[#595552] border-[#D8CFC7] hover:border-[#A9978B]"

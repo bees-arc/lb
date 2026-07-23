@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArchitecturalObject } from "@/data/collection";
 import { playTactileSound } from "@/utils/soundEngine";
@@ -15,6 +15,16 @@ interface ExplodedViewProps {
 export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
   const [explosionOffset, setExplosionOffset] = useState(40);
   const [activeLayer, setActiveLayer] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = Number(e.target.value);
@@ -47,12 +57,13 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
         </div>
 
         {/* Interactive Expansion Control Bar */}
-        <div className="mt-12 max-w-xl mx-auto bg-[#D8CFC7]/40 border border-[#D8CFC7] p-4 flex items-center justify-between gap-4 shadow-sm">
-          <span className="text-xs font-serif text-[#595552] uppercase tracking-wider pl-2">
-            Assembled
-          </span>
-          <div className="flex-1 flex items-center gap-3">
-            <Sliders className="w-4 h-4 text-[#A9978B]" />
+        <div className="mt-12 max-w-xl mx-auto bg-[#D8CFC7]/40 border border-[#D8CFC7] p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+          <div className="flex justify-between w-full sm:w-auto gap-4 text-xs font-serif text-[#595552] uppercase tracking-wider px-2">
+            <span>Assembled</span>
+            <span className="sm:hidden">Exploded ({explosionOffset}%)</span>
+          </div>
+          <div className="w-full sm:flex-1 flex items-center gap-3">
+            <Sliders className="w-4 h-4 text-[#A9978B] shrink-0" />
             <input
               type="range"
               min="0"
@@ -62,7 +73,7 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
               className="w-full h-1.5 accent-[#A9978B] cursor-pointer"
             />
           </div>
-          <span className="text-xs font-serif text-[#595552] uppercase tracking-wider pr-2">
+          <span className="hidden sm:inline text-xs font-serif text-[#595552] uppercase tracking-wider pr-2">
             Exploded ({explosionOffset}%)
           </span>
         </div>
@@ -70,7 +81,7 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
         {/* 3D Visual Exploded Component Stage */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: 4 Layer Interactive Canvas Visual */}
-          <div className="lg:col-span-7 relative h-[500px] md:h-[600px] bg-[#D8CFC7]/30 border border-[#D8CFC7] overflow-hidden flex items-center justify-center p-8">
+          <div className="lg:col-span-7 relative h-[400px] sm:h-[500px] md:h-[600px] bg-[#D8CFC7]/30 border border-[#D8CFC7] overflow-hidden flex items-center justify-center p-4 sm:p-8">
             {/* Background Texture & Glow */}
             <div
               className="absolute inset-0 transition-opacity duration-700 blur-[80px] pointer-events-none"
@@ -84,7 +95,8 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
             {/* Layer Stack Presentation */}
             <div className="relative w-full max-w-md h-full flex flex-col justify-center items-center">
               {object.explodedLayers.map((layer, idx) => {
-                const translateY = (idx - 1.5) * (explosionOffset * 1.8);
+                const multiplier = isMobile ? 1.05 : 1.8;
+                const translateY = (idx - 1.5) * (explosionOffset * multiplier);
                 const isSelected = activeLayer === idx;
 
                 return (
@@ -99,27 +111,27 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
                         explosionOffset * 0.1
                       }deg)`,
                     }}
-                    className={`absolute cursor-pointer transition-all duration-700 ease-out w-full p-6 border backdrop-blur-md flex items-center justify-between shadow-md ${
+                    className={`absolute cursor-pointer transition-all duration-700 ease-out w-full p-4 sm:p-6 border backdrop-blur-md flex items-center justify-between shadow-md ${
                       isSelected
-                        ? "bg-[#F9F6EF] border-[#A9978B] scale-[1.03] z-30 ring-2 ring-[#A9978B]/40"
+                        ? "bg-[#F9F6EF] border-[#A9978B] scale-[1.02] z-30 ring-2 ring-[#A9978B]/40"
                         : "bg-[#F9F6EF]/90 border-[#D8CFC7] hover:border-[#A9978B] z-10"
                     }`}
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="w-8 h-8 bg-[#A9978B]/20 text-[#595552] flex items-center justify-center font-serif text-xs font-semibold">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#A9978B]/20 text-[#595552] flex items-center justify-center font-serif text-[10px] sm:text-xs font-semibold shrink-0">
                         0{idx + 1}
                       </div>
                       <div>
-                        <h4 className="font-serif text-base text-[#595552] font-medium">
+                        <h4 className="font-serif text-sm sm:text-base text-[#595552] font-medium leading-tight">
                           {layer.name}
                         </h4>
-                        <span className="text-xs text-[#7A726D] font-light">
+                        <span className="text-[10px] sm:text-xs text-[#7A726D] font-light">
                           {layer.material}
                         </span>
                       </div>
                     </div>
 
-                    <div className="text-xs uppercase tracking-widest text-[#A9978B] font-serif">
+                    <div className="text-[10px] sm:text-xs uppercase tracking-widest text-[#A9978B] font-serif shrink-0">
                       {idx === 0
                         ? "Fabric"
                         : idx === 1
