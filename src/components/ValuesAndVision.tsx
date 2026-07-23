@@ -62,7 +62,7 @@ export function ValuesAndVision() {
                   playTactileSound("wood");
                   setActiveValue(idx);
                 }}
-                className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 ${
+                className={`cursor-pointer p-5 border transition-all duration-300 ${
                   activeValue === idx
                     ? "bg-[#D8CFC7] border-[#A9978B] shadow-md scale-[1.02]"
                     : "bg-[#D8CFC7]/20 border-[#D8CFC7]/60 hover:bg-[#D8CFC7]/50"
@@ -101,7 +101,7 @@ export function ValuesAndVision() {
               {materialsList.map((item) => (
                 <div
                   key={item.name}
-                  className={`p-4 rounded-xl border flex items-start gap-3 ${
+                  className={`p-4 border flex items-start gap-3 ${
                     item.approved
                       ? "bg-[#F9F6EF] border-[#D8CFC7]"
                       : "bg-[#D8CFC7]/20 border-red-200/50 opacity-60"
@@ -122,7 +122,7 @@ export function ValuesAndVision() {
           </div>
 
           {/* Business Model Breakdown Card */}
-          <div className="lg:col-span-6 rounded-3xl bg-[#D8CFC7]/40 border border-[#D8CFC7] p-8 md:p-10 shadow-lg space-y-6">
+          <div className="lg:col-span-6 bg-[#D8CFC7]/40 border border-[#D8CFC7] p-8 md:p-10 shadow-lg space-y-6">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-[#7A726D]">
                 Strategic Mix
@@ -136,7 +136,7 @@ export function ValuesAndVision() {
               {BUSINESS_MODEL_BREAKDOWN.map((bm) => (
                 <div
                   key={bm.area}
-                  className="p-4 rounded-xl bg-[#F9F6EF] border border-[#D8CFC7]/60 flex items-center justify-between"
+                  className="p-4 bg-[#F9F6EF] border border-[#D8CFC7]/60 flex items-center justify-between"
                 >
                   <div>
                     <h5 className="text-xs font-medium text-[#595552]">{bm.area}</h5>
@@ -166,7 +166,7 @@ export function ValuesAndVision() {
             {brandHorizon.map((item, idx) => (
               <div
                 key={item.year}
-                className="p-5 rounded-2xl bg-[#D8CFC7]/30 border border-[#D8CFC7]/60 flex flex-col justify-between h-40 hover:bg-[#D8CFC7]/60 transition-colors"
+                className="p-5 bg-[#D8CFC7]/30 border border-[#D8CFC7]/60 flex flex-col justify-between h-40 hover:bg-[#D8CFC7]/60 transition-colors"
               >
                 <span className="text-xs font-mono font-medium text-[#A9978B]">
                   {item.year}
@@ -174,7 +174,7 @@ export function ValuesAndVision() {
                 <p className="font-serif text-base text-[#595552] font-normal leading-snug">
                   {item.label}
                 </p>
-                <div className="w-full h-1 bg-[#A9978B]/30 rounded-full overflow-hidden">
+                <div className="w-full h-1 bg-[#A9978B]/30 overflow-hidden">
                   <div
                     className="h-full bg-[#A9978B]"
                     style={{ width: `${(idx + 1) * 20}%` }}

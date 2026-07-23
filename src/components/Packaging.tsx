@@ -38,7 +38,7 @@ export function Packaging() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: Packaging Photograph */}
           <div className="lg:col-span-6 relative">
-            <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden border border-[#D8CFC7] shadow-xl bg-[#D8CFC7]/40">
+            <div className="relative aspect-[4/3] w-full overflow-hidden border border-[#D8CFC7] shadow-xl bg-[#D8CFC7]/40">
               <Image
                 src="/images/packaging_linen_pouch.png"
                 alt="LIGHT BUCKET Sustainable Packaging — Linen Pouch, Wooden Tag & Wax Stamp"
@@ -79,7 +79,7 @@ export function Packaging() {
                 <div
                   key={item.title}
                   onMouseEnter={() => playTactileSound("fabric")}
-                  className="p-5 rounded-2xl bg-[#D8CFC7]/30 border border-[#D8CFC7]/60 space-y-2 hover:bg-[#D8CFC7]/60 transition-colors"
+                  className="p-5 bg-[#D8CFC7]/30 border border-[#D8CFC7]/60 space-y-2 hover:bg-[#D8CFC7]/60 transition-colors"
                 >
                   <item.icon className="w-5 h-5 text-[#A9978B]" />
                   <h4 className="font-serif text-base text-[#595552] font-medium">

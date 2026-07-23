@@ -61,7 +61,7 @@ export function Journal() {
             <article
               key={art.title}
               onMouseEnter={() => playTactileSound("fabric")}
-              className="group cursor-pointer rounded-2xl bg-[#D8CFC7]/20 border border-[#D8CFC7]/60 overflow-hidden hover:bg-[#D8CFC7]/40 transition-all duration-500 flex flex-col justify-between"
+              className="group cursor-pointer bg-[#D8CFC7]/20 border border-[#D8CFC7]/60 overflow-hidden hover:bg-[#D8CFC7]/40 transition-all duration-500 flex flex-col justify-between"
             >
               <div>
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#D8CFC7]">
@@ -71,7 +71,7 @@ export function Journal() {
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-4 left-4 bg-[#F9F6EF]/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase tracking-widest text-[#595552] font-mono">
+                  <div className="absolute top-4 left-4 bg-[#F9F6EF]/90 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#595552] font-mono">
                     {art.category}
                   </div>
                 </div>

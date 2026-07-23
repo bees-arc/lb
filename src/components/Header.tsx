@@ -97,7 +97,7 @@ export function Header({ onOpenInquiry }: HeaderProps) {
             <button
               onClick={toggleSound}
               title={soundEnabled ? "Soundscapes Enabled" : "Sound Muted"}
-              className={`p-2 rounded-full border transition-all duration-300 ${
+              className={`p-2 border transition-all duration-300 ${
                 isScrolled
                   ? "border-[#D8CFC7] hover:border-[#A9978B] bg-[#F9F6EF]/50 text-[#595552]"
                   : "border-white/30 hover:border-white/60 bg-white/10 text-white"
@@ -116,7 +116,7 @@ export function Header({ onOpenInquiry }: HeaderProps) {
                 if (soundEnabled) playTactileSound("wood");
                 onOpenInquiry();
               }}
-              className="hidden lg:inline-flex items-center space-x-2 text-xs tracking-[0.2em] uppercase px-5 py-2.5 rounded-full bg-[#A9978B] text-[#F9F6EF] hover:bg-[#595552] transition-colors shadow-sm"
+              className="hidden lg:inline-flex items-center space-x-2 text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-[#A9978B] text-[#F9F6EF] hover:bg-[#595552] transition-colors shadow-sm"
             >
               <span>Inquire</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -146,7 +146,7 @@ export function Header({ onOpenInquiry }: HeaderProps) {
             <Logo showText={true} size="sm" />
             <button
               onClick={() => setMenuOpen(false)}
-              className="p-2 rounded-full border border-[#D8CFC7] text-[#595552]"
+              className="p-2 border border-[#D8CFC7] text-[#595552]"
             >
               <X className="w-6 h-6" />
             </button>

@@ -54,7 +54,7 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
                 setSelectedFilter(filter);
                 setActiveObjIndex(0);
               }}
-              className={`px-6 py-2.5 rounded-full text-xs uppercase tracking-[0.25em] transition-all duration-300 ${
+              className={`px-6 py-2.5 text-xs uppercase tracking-[0.25em] transition-all duration-300 ${
                 selectedFilter === filter
                   ? "bg-[#A9978B] text-[#F9F6EF] shadow-sm"
                   : "bg-[#D8CFC7]/40 text-[#595552] hover:bg-[#D8CFC7]"
@@ -69,10 +69,10 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
       {/* Main Apple-Style Hero Object Showcase */}
       {activeObject && (
         <div className="mt-20 max-w-6xl mx-auto">
-          <div className="rounded-3xl bg-[#D8CFC7]/30 border border-[#D8CFC7] p-8 md:p-14 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className=" bg-[#D8CFC7]/30 border border-[#D8CFC7] p-8 md:p-14 shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left: Huge Architectural Image */}
             <div className="lg:col-span-7 relative group">
-              <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border border-[#D8CFC7] bg-[#D8CFC7]/50 shadow-md">
+              <div className="relative aspect-[4/3] w-full overflow-hidden border border-[#D8CFC7] bg-[#D8CFC7]/50 shadow-md">
                 <Image
                   src={activeObject.image}
                   alt={activeObject.name}
@@ -82,11 +82,11 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
                 />
 
                 {/* Subtle Price & Tag */}
-                <div className="absolute top-6 left-6 bg-[#F9F6EF]/90 backdrop-blur-md px-4 py-2 rounded-full border border-[#D8CFC7] text-xs font-serif text-[#595552]">
+                <div className="absolute top-6 left-6 bg-[#F9F6EF]/90 backdrop-blur-md px-4 py-2 border border-[#D8CFC7] text-xs font-serif text-[#595552]">
                   {activeObject.collection} Series
                 </div>
 
-                <div className="absolute bottom-6 right-6 bg-[#A9978B] text-[#F9F6EF] px-5 py-2 rounded-full text-sm font-serif font-medium shadow-md">
+                <div className="absolute bottom-6 right-6 bg-[#A9978B] text-[#F9F6EF] px-5 py-2 text-sm font-serif font-medium shadow-md">
                   {activeObject.price}
                 </div>
               </div>
@@ -110,7 +110,7 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
 
               {/* Three Pill Core Spec Callouts */}
               <div className="space-y-4 pt-4 border-t border-[#D8CFC7]">
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-[#F9F6EF] border border-[#D8CFC7]/60">
+                <div className="flex items-center justify-between p-3.5 bg-[#F9F6EF] border border-[#D8CFC7]/60">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#A9978B]" />
                     <span className="text-xs font-medium text-[#595552]">Fabric</span>
@@ -120,7 +120,7 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-[#F9F6EF] border border-[#D8CFC7]/60">
+                <div className="flex items-center justify-between p-3.5 bg-[#F9F6EF] border border-[#D8CFC7]/60">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#A9978B]" />
                     <span className="text-xs font-medium text-[#595552]">Wood</span>
@@ -130,7 +130,7 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-[#F9F6EF] border border-[#D8CFC7]/60">
+                <div className="flex items-center justify-between p-3.5 bg-[#F9F6EF] border border-[#D8CFC7]/60">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-4 h-4 text-[#A9978B]" />
                     <span className="text-xs font-medium text-[#595552]">Temperature</span>
@@ -148,7 +148,7 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
                     playTactileSound("wood");
                     onSelectObject(activeObject);
                   }}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#A9978B] hover:bg-[#595552] text-[#F9F6EF] text-xs uppercase tracking-[0.25em] font-medium transition-colors flex items-center justify-center gap-3 shadow-md"
+                  className="w-full sm:w-auto px-7 py-3.5 bg-[#A9978B] hover:bg-[#595552] text-[#F9F6EF] text-xs uppercase tracking-[0.25em] font-medium transition-colors flex items-center justify-center gap-3 shadow-md"
                 >
                   <span>Exploded View</span>
                   <Sparkles className="w-4 h-4" />
@@ -159,7 +159,7 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
                     playTactileSound("fabric");
                     onInquire(activeObject.name);
                   }}
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-[#A9978B] text-[#595552] hover:bg-[#A9978B] hover:text-[#F9F6EF] text-xs uppercase tracking-[0.25em] font-medium transition-colors flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-7 py-3.5 border border-[#A9978B] text-[#595552] hover:bg-[#A9978B] hover:text-[#F9F6EF] text-xs uppercase tracking-[0.25em] font-medium transition-colors flex items-center justify-center gap-2"
                 >
                   <span>Acquire Piece</span>
                   <ArrowRight className="w-4 h-4" />
@@ -179,13 +179,13 @@ export function Collection({ onSelectObject, onInquire }: CollectionProps) {
               playTactileSound("fabric");
               setActiveObjIndex(index);
             }}
-            className={`cursor-pointer rounded-2xl bg-[#D8CFC7]/20 border p-6 transition-all duration-500 hover:shadow-md ${
+            className={`cursor-pointer bg-[#D8CFC7]/20 border p-6 transition-all duration-500 hover:shadow-md ${
               activeObject.id === obj.id
                 ? "border-[#A9978B] bg-[#D8CFC7]/50 shadow-sm"
                 : "border-[#D8CFC7]/60 hover:border-[#A9978B]/50"
             }`}
           >
-            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden mb-6 bg-[#D8CFC7]">
+            <div className="relative aspect-[4/3] w-full overflow-hidden mb-6 bg-[#D8CFC7]">
               <Image
                 src={obj.image}
                 alt={obj.name}

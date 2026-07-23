@@ -47,7 +47,7 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
         </div>
 
         {/* Interactive Expansion Control Bar */}
-        <div className="mt-12 max-w-xl mx-auto bg-[#D8CFC7]/40 border border-[#D8CFC7] rounded-full p-4 flex items-center justify-between gap-4 shadow-sm">
+        <div className="mt-12 max-w-xl mx-auto bg-[#D8CFC7]/40 border border-[#D8CFC7] p-4 flex items-center justify-between gap-4 shadow-sm">
           <span className="text-xs font-serif text-[#595552] uppercase tracking-wider pl-2">
             Assembled
           </span>
@@ -70,7 +70,7 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
         {/* 3D Visual Exploded Component Stage */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left: 4 Layer Interactive Canvas Visual */}
-          <div className="lg:col-span-7 relative h-[500px] md:h-[600px] rounded-3xl bg-[#D8CFC7]/30 border border-[#D8CFC7] overflow-hidden flex items-center justify-center p-8">
+          <div className="lg:col-span-7 relative h-[500px] md:h-[600px] bg-[#D8CFC7]/30 border border-[#D8CFC7] overflow-hidden flex items-center justify-center p-8">
             {/* Background Texture & Glow */}
             <div
               className="absolute inset-0 transition-opacity duration-700 blur-[80px] pointer-events-none"
@@ -99,14 +99,14 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
                         explosionOffset * 0.1
                       }deg)`,
                     }}
-                    className={`absolute cursor-pointer transition-all duration-700 ease-out w-full p-6 rounded-2xl border backdrop-blur-md flex items-center justify-between shadow-md ${
+                    className={`absolute cursor-pointer transition-all duration-700 ease-out w-full p-6 border backdrop-blur-md flex items-center justify-between shadow-md ${
                       isSelected
                         ? "bg-[#F9F6EF] border-[#A9978B] scale-[1.03] z-30 ring-2 ring-[#A9978B]/40"
                         : "bg-[#F9F6EF]/90 border-[#D8CFC7] hover:border-[#A9978B] z-10"
                     }`}
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-8 h-8 rounded-full bg-[#A9978B]/20 text-[#595552] flex items-center justify-center font-serif text-xs font-semibold">
+                      <div className="w-8 h-8 bg-[#A9978B]/20 text-[#595552] flex items-center justify-center font-serif text-xs font-semibold">
                         0{idx + 1}
                       </div>
                       <div>
@@ -148,7 +148,7 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
                     playTactileSound("wood");
                     setActiveLayer(idx);
                   }}
-                  className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 ${
+                  className={`cursor-pointer p-5 border transition-all duration-300 ${
                     activeLayer === idx
                       ? "bg-[#D8CFC7] border-[#A9978B] shadow-sm"
                       : "bg-[#D8CFC7]/30 border-[#D8CFC7]/60 hover:bg-[#D8CFC7]/60"
@@ -178,7 +178,7 @@ export function ExplodedView({ object, onInquire }: ExplodedViewProps) {
             <div className="pt-6">
               <button
                 onClick={() => onInquire(object.name)}
-                className="w-full py-4 rounded-full bg-[#A9978B] hover:bg-[#595552] text-[#F9F6EF] text-xs uppercase tracking-[0.25em] font-medium transition-colors shadow-md"
+                className="w-full py-4 bg-[#A9978B] hover:bg-[#595552] text-[#F9F6EF] text-xs uppercase tracking-[0.25em] font-medium transition-colors shadow-md"
               >
                 Inquire About {object.name}
               </button>

@@ -43,9 +43,9 @@ export function Philosophy() {
 
       {/* Atmospheric Video & Tactile Sensory Sanctuary */}
       <div className="mt-20 max-w-6xl mx-auto">
-        <div className="relative rounded-3xl overflow-hidden bg-[#D8CFC7]/50 border border-[#D8CFC7] shadow-xl p-8 md:p-12">
+        <div className="relative overflow-hidden bg-[#D8CFC7]/50 border border-[#D8CFC7] shadow-xl p-8 md:p-12">
           {/* Main Visual Presentation Frame */}
-          <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-[#D8CFC7]">
+          <div className="relative aspect-[16/9] w-full overflow-hidden border border-[#D8CFC7]">
             <Image
               src="/images/craftsmanship_wood_fabric.png"
               alt="Hands making floating lamps with natural linen and ash wood"
@@ -89,7 +89,7 @@ export function Philosophy() {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => handleSoundClick("wood")}
-                className={`px-5 py-3 rounded-full border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
+                className={`px-5 py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
                   activeSound === "wood"
                     ? "bg-[#A9978B] text-[#F9F6EF] border-[#A9978B] scale-95"
                     : "bg-[#F9F6EF] text-[#595552] border-[#D8CFC7] hover:border-[#A9978B]"
@@ -101,7 +101,7 @@ export function Philosophy() {
 
               <button
                 onClick={() => handleSoundClick("fabric")}
-                className={`px-5 py-3 rounded-full border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
+                className={`px-5 py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
                   activeSound === "fabric"
                     ? "bg-[#A9978B] text-[#F9F6EF] border-[#A9978B] scale-95"
                     : "bg-[#F9F6EF] text-[#595552] border-[#D8CFC7] hover:border-[#A9978B]"
@@ -113,7 +113,7 @@ export function Philosophy() {
 
               <button
                 onClick={() => handleSoundClick("light")}
-                className={`px-5 py-3 rounded-full border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
+                className={`px-5 py-3 border text-xs uppercase tracking-[0.2em] transition-all duration-300 flex items-center gap-2 ${
                   activeSound === "light"
                     ? "bg-[#A9978B] text-[#F9F6EF] border-[#A9978B] scale-95"
                     : "bg-[#F9F6EF] text-[#595552] border-[#D8CFC7] hover:border-[#A9978B]"

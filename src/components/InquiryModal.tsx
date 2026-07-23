@@ -37,7 +37,7 @@ export function InquiryModal({ isOpen, onClose, prefilledObject }: InquiryModalP
 
   return (
     <div className="fixed inset-0 z-50 bg-[#595552]/40 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn">
-      <div className="relative w-full max-w-xl bg-[#F9F6EF] rounded-3xl border border-[#D8CFC7] shadow-2xl p-8 md:p-10 text-[#595552]">
+      <div className="relative w-full max-w-xl bg-[#F9F6EF] border border-[#D8CFC7] shadow-2xl p-8 md:p-10 text-[#595552]">
         {/* Close Button */}
         <button
           onClick={() => {
@@ -45,14 +45,14 @@ export function InquiryModal({ isOpen, onClose, prefilledObject }: InquiryModalP
             onClose();
             setSubmitted(false);
           }}
-          className="absolute top-6 right-6 p-2 rounded-full border border-[#D8CFC7] hover:border-[#A9978B] text-[#595552] transition-colors"
+          className="absolute top-6 right-6 p-2 border border-[#D8CFC7] hover:border-[#A9978B] text-[#595552] transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
 
         {submitted ? (
           <div className="text-center py-12 space-y-6">
-            <div className="w-16 h-16 rounded-full bg-[#A9978B]/20 text-[#A9978B] flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 bg-[#A9978B]/20 text-[#A9978B] flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
@@ -70,7 +70,7 @@ export function InquiryModal({ isOpen, onClose, prefilledObject }: InquiryModalP
                 onClose();
                 setSubmitted(false);
               }}
-              className="px-8 py-3.5 rounded-full bg-[#A9978B] text-[#F9F6EF] text-xs uppercase tracking-[0.25em] font-medium"
+              className="px-8 py-3.5 bg-[#A9978B] text-[#F9F6EF] text-xs uppercase tracking-[0.25em] font-medium"
             >
               Return to Gallery
             </button>
@@ -100,7 +100,7 @@ export function InquiryModal({ isOpen, onClose, prefilledObject }: InquiryModalP
                   placeholder="e.g. Elena Rostova"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B] placeholder:text-[#7A726D]/50"
+                  className="w-full px-4 py-3 bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B] placeholder:text-[#7A726D]/50"
                 />
               </div>
 
@@ -115,7 +115,7 @@ export function InquiryModal({ isOpen, onClose, prefilledObject }: InquiryModalP
                     placeholder="elena@studio.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B] placeholder:text-[#7A726D]/50"
+                    className="w-full px-4 py-3 bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B] placeholder:text-[#7A726D]/50"
                   />
                 </div>
 
@@ -126,7 +126,7 @@ export function InquiryModal({ isOpen, onClose, prefilledObject }: InquiryModalP
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B]"
+                    className="w-full px-4 py-3 bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B]"
                   >
                     <option value="Private Acquisition">Private Acquisition</option>
                     <option value="Architect / Interior Designer">
@@ -148,7 +148,7 @@ export function InquiryModal({ isOpen, onClose, prefilledObject }: InquiryModalP
                   onChange={(e) =>
                     setFormData({ ...formData, objectName: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B]"
+                  className="w-full px-4 py-3 bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B]"
                 />
               </div>
 
@@ -163,13 +163,13 @@ export function InquiryModal({ isOpen, onClose, prefilledObject }: InquiryModalP
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-xl bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B] placeholder:text-[#7A726D]/50"
+                  className="w-full px-4 py-3 bg-[#D8CFC7]/30 border border-[#D8CFC7] text-sm text-[#595552] focus:outline-none focus:border-[#A9978B] placeholder:text-[#7A726D]/50"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 rounded-full bg-[#A9978B] hover:bg-[#595552] text-[#F9F6EF] text-xs uppercase tracking-[0.3em] font-medium transition-colors flex items-center justify-center gap-3 shadow-md mt-4"
+                className="w-full py-4 bg-[#A9978B] hover:bg-[#595552] text-[#F9F6EF] text-xs uppercase tracking-[0.3em] font-medium transition-colors flex items-center justify-center gap-3 shadow-md mt-4"
               >
                 <span>Submit Studio Inquiry</span>
                 <Send className="w-4 h-4" />

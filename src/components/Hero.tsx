@@ -82,7 +82,7 @@ export function Hero({ onDiscoverClick }: HeroProps) {
               playTactileSound("wood");
               onDiscoverClick();
             }}
-            className="inline-flex items-center space-x-3 px-8 py-4 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white text-xs uppercase tracking-[0.3em] font-medium transition-all duration-500 shadow-md hover:shadow-lg hover:translate-y-[-2px]"
+            className="inline-flex items-center space-x-3 px-8 py-4 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white text-xs uppercase tracking-[0.3em] font-medium transition-all duration-500 shadow-md hover:shadow-lg hover:translate-y-[-2px]"
           >
             <span>Discover Collection</span>
             <ArrowDown className="w-4 h-4" />
@@ -91,7 +91,7 @@ export function Hero({ onDiscoverClick }: HeroProps) {
       </div>
 
       {/* ── Ambient Light Control (bottom-right) ── */}
-      <div className="absolute bottom-24 right-6 z-20 bg-black/20 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 flex items-center space-x-3 text-xs text-white/80">
+      <div className="absolute bottom-24 right-6 z-20 bg-black/20 backdrop-blur-sm border border-white/20 px-4 py-1.5 flex items-center space-x-3 text-xs text-white/80">
         <Sun className="w-3.5 h-3.5 text-[#F5E3C6]" />
         <span className="font-serif italic text-xs">2700K</span>
         <input
