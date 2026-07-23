@@ -31,6 +31,7 @@ export function Logo({
         height={s}
         sizes="(max-width: 768px) 72px, 140px"
         priority
+        style={{ mixBlendMode: "multiply" }}
         className="transition-transform duration-700 ease-out hover:scale-[1.02]"
       />
     </div>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Logo } from "./Logo";
-import { Volume2, VolumeX, Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { playTactileSound } from "@/utils/soundEngine";
 
 interface HeaderProps {
@@ -12,15 +12,10 @@ interface HeaderProps {
 export function Header({ onOpenInquiry }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -36,19 +31,11 @@ export function Header({ onOpenInquiry }: HeaderProps) {
   ];
 
   const handleNavClick = (href: string) => {
-    if (soundEnabled) playTactileSound("wood");
+    playTactileSound("wood");
     setMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const toggleSound = () => {
-    const nextState = !soundEnabled;
-    setSoundEnabled(nextState);
-    if (nextState) {
-      playTactileSound("light");
     }
   };
 
@@ -58,7 +45,7 @@ export function Header({ onOpenInquiry }: HeaderProps) {
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ${
           isScrolled
             ? "py-4 bg-[#F9F6EF]/95 backdrop-blur-md border-b border-[#D8CFC7]/50 shadow-sm"
-            : "py-6 bg-gradient-to-b from-black/40 to-transparent backdrop-blur-none"
+            : "py-6 bg-gradient-to-b from-black/40 to-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -66,9 +53,9 @@ export function Header({ onOpenInquiry }: HeaderProps) {
           <a
             href="#"
             className="flex items-center group"
-            onClick={() => soundEnabled && playTactileSound("light")}
+            onClick={() => playTactileSound("light")}
           >
-            <Logo showText={true} size="sm" />
+            <Logo showText={true} size="md" />
           </a>
 
           {/* Desktop Navigation */}
@@ -93,27 +80,10 @@ export function Header({ onOpenInquiry }: HeaderProps) {
 
           {/* Action controls */}
           <div className="flex items-center space-x-4">
-            {/* Audio Toggle */}
-            <button
-              onClick={toggleSound}
-              title={soundEnabled ? "Soundscapes Enabled" : "Sound Muted"}
-              className={`p-2 border transition-all duration-300 ${
-                isScrolled
-                  ? "border-[#D8CFC7] hover:border-[#A9978B] bg-[#F9F6EF]/50 text-[#595552]"
-                  : "border-white/30 hover:border-white/60 bg-white/10 text-white"
-              }`}
-            >
-              {soundEnabled ? (
-                <Volume2 className={`w-4 h-4 ${isScrolled ? "text-[#A9978B]" : "text-white"}`} />
-              ) : (
-                <VolumeX className={`w-4 h-4 ${isScrolled ? "text-[#7A726D]" : "text-white/60"}`} />
-              )}
-            </button>
-
             {/* Bespoke Inquiry CTA */}
             <button
               onClick={() => {
-                if (soundEnabled) playTactileSound("wood");
+                playTactileSound("wood");
                 onOpenInquiry();
               }}
               className="hidden lg:inline-flex items-center space-x-2 text-xs tracking-[0.2em] uppercase px-5 py-2.5 bg-[#A9978B] text-[#F9F6EF] hover:bg-[#595552] transition-colors shadow-sm"
@@ -125,7 +95,7 @@ export function Header({ onOpenInquiry }: HeaderProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => {
-                if (soundEnabled) playTactileSound("fabric");
+                playTactileSound("fabric");
                 setMenuOpen(!menuOpen);
               }}
               className={`md:hidden p-2 transition-colors ${
