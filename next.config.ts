@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* Next.js configuration for Light Bucket Architectural Objects */
 };
 
 export default nextConfig;
+
+
