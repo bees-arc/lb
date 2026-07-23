@@ -73,17 +73,7 @@ export function Hero({ onDiscoverClick }: HeroProps) {
           <br className="hidden sm:inline" />
           for Modern Living.
         </h1>
-
-        <p className="mt-8 text-sm md:text-base text-white/80 max-w-xl mx-auto font-light tracking-wide leading-relaxed drop-shadow">
-          Where light finds form. Lightweight, floating objects crafted from
-          steam-bent ash wood, hand-woven natural linen, and 2700K serene radiance.
-        </p>
-
-        {/* Floating badge */}
-        <div className="mt-8 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/20 text-xs text-white/90">
-          <Sparkles className="w-3.5 h-3.5 text-[#F5E3C6]" />
-          <span className="font-serif italic">Object No. 01 — Kaze</span>
-        </div>
+      
 
         {/* CTA */}
         <div className="mt-10">
